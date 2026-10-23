@@ -396,7 +396,7 @@
       const side = el('text', { x: 12, y: 108, 'font-size': 9, 'font-family': 'Oswald, sans-serif', fill: '#5a4d3d', 'letter-spacing': 1 }, face);
       side.textContent = host.dataset.vu;
       const needle = el('g', { class: 'needle' }, svg);
-      el('line', { x1: CX, y1: CY, x2: CX, y2: 26, stroke: '#15100c', 'stroke-width': 1.6, 'stroke-linecap': 'round' }, needle);
+      el('line', { x1: CX, y1: CY, x2: CX, y2: 42, stroke: '#15100c', 'stroke-width': 1.6, 'stroke-linecap': 'round' }, needle);
       el('path', { d: 'M0 0 H200 V30 Q100 52 0 30 Z', fill: '#ffffff', opacity: 0.12 }, svg); // блик стекла
       host.appendChild(svg);
       vus.push({ needle, angle: -52, vel: 0, target: -52, seed: Math.random() * 100 });
@@ -410,10 +410,10 @@
       vus.forEach((v, i) => {
         if (state.playing) {
           // «музыка»: медленная волна + быстрые всплески
-          const base = 0.55 + 0.18 * Math.sin(t * 1.3 + v.seed) + 0.1 * Math.sin(t * 3.7 + i);
-          const peak = Math.random() < 0.06 ? Math.random() * 0.35 : 0;
-          const lvl = Math.max(0, Math.min(1.05, base + peak + (Math.random() - 0.5) * 0.12));
-          v.target = -50 + lvl * 96;
+          const base = 0.5 + 0.14 * Math.sin(t * 1.3 + v.seed) + 0.08 * Math.sin(t * 3.7 + i);
+          const peak = Math.random() < 0.05 ? Math.random() * 0.22 : 0;
+          const lvl = Math.max(0, Math.min(0.95, base + peak + (Math.random() - 0.5) * 0.1));
+          v.target = -50 + lvl * 90;
         } else {
           v.target = -52;
         }
@@ -422,6 +422,9 @@
         const c = 11;
         v.vel += (k * (v.target - v.angle) - c * v.vel) * dt;
         v.angle += v.vel * dt;
+        // упоры шкалы: стрелка не выходит за -20 и +3
+        if (v.angle > 46) { v.angle = 46; v.vel = Math.min(0, v.vel); }
+        if (v.angle < -52) { v.angle = -52; v.vel = Math.max(0, v.vel); }
         v.needle.setAttribute('transform', 'rotate(' + v.angle.toFixed(2) + ' ' + CX + ' ' + CY + ')');
       });
       requestAnimationFrame(vuFrame);
