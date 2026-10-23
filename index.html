@@ -10,10 +10,18 @@
 <link rel="preload" href="assets/fonts/monoton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/fonts.css">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/pages.css">
+<script>try{if(sessionStorage.getItem("rj-intro"))document.documentElement.classList.add("no-intro")}catch(e){}</script>
 <script src="js/main.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">К содержанию</a>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__deck"><div class="loader__disc"><span>JAZZ</span></div><div class="loader__arm"></div></div>
+  <p class="loader__t">33⅓</p>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <div class="ticker">
   <span class="ticker__label">Факт дня</span>
@@ -25,11 +33,11 @@
     <a class="logo" href="#top" aria-label="Радио JAZZ 89.1 FM, наверх">JAZZ <span>89.1</span></a>
     <nav class="nav" id="nav" aria-label="Основное меню">
       <a href="#news">Новости</a>
+      <a href="#schedule">Программа</a>
+      <a href="musicians.html">Музыканты</a>
       <a href="#releases">Релизы</a>
       <a href="#podcasts">Подкасты</a>
       <a href="#video">Видео</a>
-      <a href="#connect">Музыкантам</a>
-      <a href="#contacts">Контакты</a>
     </nav>
     <button class="btn btn--light header__cta" type="button" data-open-message>Сообщение в эфир</button>
     <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
@@ -79,6 +87,11 @@
           <span class="live"><i></i>Live</span>
         </div>
 
+        <div class="vu-row" aria-hidden="true">
+          <div class="vu" data-vu="L"></div>
+          <div class="vu" data-vu="R"></div>
+        </div>
+
         <div class="streams" role="group" aria-label="Потоки">
           <button class="stream" type="button" data-stream="0" aria-pressed="true">Jazz Legends</button>
           <button class="stream" type="button" data-stream="1" aria-pressed="false">Smooth Jazz</button>
@@ -97,6 +110,23 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <section class="section section--line schedule" id="schedule">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Сегодня в эфире</p>
+          <h2>Программа</h2>
+        </div>
+        <div class="sched-nav">
+          <span class="sched-note">Расписание условное, для демо</span>
+          <button class="sched-btn" type="button" data-sched="-1" aria-label="Листать назад"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg></button>
+          <button class="sched-btn" type="button" data-sched="1" aria-label="Листать вперёд"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg></button>
+        </div>
+      </div>
+    </div>
+    <div class="sched" id="sched" tabindex="0" aria-label="Программа передач на сегодня"><ol class="sched__list" id="schedList"></ol></div>
   </section>
 
   <section class="releases section" id="releases">
@@ -175,48 +205,56 @@
       </div>
 
       <div class="news-grid" id="newsGrid">
-        <a class="card card--feature slot" data-tag="Биография" href="https://radiojazzfm.ru/news/dizzi-gillespi-2">
+        <a class="card card--feature slot" data-tag="Биография" href="article.html">
           <span class="card__tag">Биография</span>
           <h3 class="card__title">Диззи Гиллеспи — джазмен, от музыки которого голова идёт кругом</h3>
           <span class="card__num">01</span>
           <img class="cut card__img" data-slot src="assets/img/01-sax.webp" alt="" loading="lazy">
         </a>
-        <a class="card" data-tag="Новости" href="https://radiojazzfm.ru/news/radio-jazz-prezentovalo-sobstvennyy-aromat">
+        <a class="card card--art" data-tag="Новости" href="https://radiojazzfm.ru/news/radio-jazz-prezentovalo-sobstvennyy-aromat">
+          <div class="card__art p-aroma" aria-hidden="true"><i class="s1"></i><span class="poster__w">Аромат</span><img class="cut card__obj" data-slot src="assets/img/news/n02-perfume.webp" alt="" loading="lazy"></div>
           <span class="card__tag">Новости</span>
           <h3 class="card__title">Радио JAZZ презентовало собственный аромат</h3>
           <span class="card__num">02</span>
         </a>
-        <a class="card" data-tag="Новости" href="https://radiojazzfm.ru/news/sergeyu-zhilinu">
+        <a class="card card--art" data-tag="Новости" href="https://radiojazzfm.ru/news/sergeyu-zhilinu">
+          <div class="card__art p-sixty" aria-hidden="true"><i class="s1"></i><span class="poster__w">60!</span><img class="cut card__obj" data-slot src="assets/img/news/n03-champagne.webp" alt="" loading="lazy"></div>
           <span class="card__tag">Новости</span>
           <h3 class="card__title">Сергею Жилину — 60!</h3>
           <span class="card__num">03</span>
         </a>
-        <a class="card" data-tag="Цитаты" href="https://radiojazzfm.ru/news/10-sovetov-teloniusa-monka-muzykantam">
+        <a class="card card--art" data-tag="Цитаты" href="https://radiojazzfm.ru/news/10-sovetov-teloniusa-monka-muzykantam">
+          <div class="card__art p-monk" aria-hidden="true"><i class="s1"></i><span class="poster__w">Монк</span><img class="cut card__obj" data-slot src="assets/img/news/n04-hat.webp" alt="" loading="lazy"></div>
           <span class="card__tag">Цитаты</span>
           <h3 class="card__title">10 советов Телониуса Монка музыкантам</h3>
           <span class="card__num">04</span>
         </a>
-        <a class="card" data-tag="Подборка" href="https://radiojazzfm.ru/news/luchshie-dzhaz-fyuzhn-albomy">
+        <a class="card card--art" data-tag="Подборка" href="https://radiojazzfm.ru/news/luchshie-dzhaz-fyuzhn-albomy">
+          <div class="card__art p-fusion" aria-hidden="true"><i class="s1"></i><span class="poster__w">Fusion</span><img class="cut card__obj" data-slot src="assets/img/news/n05-epiano.webp" alt="" loading="lazy"></div>
           <span class="card__tag">Подборка</span>
           <h3 class="card__title">Лучшие джаз-фьюжн альбомы</h3>
           <span class="card__num">05</span>
         </a>
-        <a class="card" data-tag="Биография" href="https://radiojazzfm.ru/news/rey-charlz-tragediya-zhizni-obernuvshayasya-chudom">
+        <a class="card card--art" data-tag="Биография" href="https://radiojazzfm.ru/news/rey-charlz-tragediya-zhizni-obernuvshayasya-chudom">
+          <div class="card__art p-ray" aria-hidden="true"><i class="s1"></i><i class="s2"></i><span class="poster__w">Ray</span><img class="cut card__obj" data-slot src="assets/img/news/n06-sunglasses.webp" alt="" loading="lazy"></div>
           <span class="card__tag">Биография</span>
           <h3 class="card__title">Рэй Чарльз: трагедия жизни, обернувшаяся чудом</h3>
           <span class="card__num">06</span>
         </a>
-        <a class="card" data-tag="История" href="https://radiojazzfm.ru/news/ella-fitsdzherald-i-merilin-monro">
+        <a class="card card--art" data-tag="История" href="https://radiojazzfm.ru/news/ella-fitsdzherald-i-merilin-monro">
+          <div class="card__art p-ella" aria-hidden="true"><i class="s1"></i><span class="poster__w">Ella ×<br>Marilyn</span><img class="cut card__obj" data-slot src="assets/img/news/n07-pearls.webp" alt="" loading="lazy"></div>
           <span class="card__tag">История</span>
           <h3 class="card__title">Элла Фицджеральд и Мэрилин Монро</h3>
           <span class="card__num">07</span>
         </a>
-        <a class="card" data-tag="Подборка" href="https://radiojazzfm.ru/news/luchshie-dzhazovye-saksofonisty-xx-nachala-xxi-veka">
+        <a class="card card--art" data-tag="Подборка" href="https://radiojazzfm.ru/news/luchshie-dzhazovye-saksofonisty-xx-nachala-xxi-veka">
+          <div class="card__art p-sax" aria-hidden="true"><i class="s1"></i><span class="poster__w">Sax</span><img class="cut card__obj" data-slot src="assets/img/news/n08-mouthpiece.webp" alt="" loading="lazy"></div>
           <span class="card__tag">Подборка</span>
           <h3 class="card__title">Лучшие джазовые саксофонисты XX — начала XXI века</h3>
           <span class="card__num">08</span>
         </a>
-        <a class="card" data-tag="Релизы" href="https://radiojazzfm.ru/news/aleksey-kruglov-predstavil-novyy-vzglyad-na-a-love-supreme-koltreyna">
+        <a class="card card--art" data-tag="Релизы" href="https://radiojazzfm.ru/news/aleksey-kruglov-predstavil-novyy-vzglyad-na-a-love-supreme-koltreyna">
+          <div class="card__art p-supreme" aria-hidden="true"><i class="s1"></i><span class="poster__w">A Love<br>Supreme</span><img class="cut card__obj" data-slot src="assets/img/news/n09-tape.webp" alt="" loading="lazy"></div>
           <span class="card__tag">Релизы</span>
           <h3 class="card__title">Алексей Круглов представил новый взгляд на «A Love Supreme» Колтрейна</h3>
           <span class="card__num">09</span>
@@ -333,6 +371,14 @@
           <li><a href="https://apps.apple.com/ru/app/%D1%80%D0%B0%D0%B4%D0%B8%D0%BE-jazz/id974032772">App Store</a></li>
           <li><a href="https://play.google.com/store/apps/details?id=ru.radiojazzfm.player">Google Play</a></li>
           <li><a href="https://radiojazzfm.ru/towns">Города и частоты</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Проект</p>
+        <ul>
+          <li><a href="musicians.html">Энциклопедия музыкантов</a></li>
+          <li><a href="article.html">Статья: Диззи Гиллеспи</a></li>
+          <li><a href="case.html">О концепте</a></li>
         </ul>
       </div>
     </div>

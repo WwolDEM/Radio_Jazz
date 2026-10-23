@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Кейс: редизайн Радио JAZZ — WwolDEM</title>
+<meta name="description" content="Инициативный концепт редизайна сайта Радио JAZZ 89.1 FM: задача, поиск стиля, решения.">
+<meta name="theme-color" content="#15100c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%2315100c'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%234a3b2c'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23c4402a'/%3E%3Ccircle cx='16' cy='16' r='1.2' fill='%2315100c'/%3E%3C/svg%3E">
+<link rel="preload" href="assets/fonts/monoton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/pages.css">
+<script src="js/main.js" defer></script>
+</head>
+<body class="page-case">
+<a class="skip" href="#main">К содержанию</a>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<div class="ticker">
+  <span class="ticker__label">Факт дня</span>
+  <div class="ticker__track"><div class="ticker__run" id="tickerRun"></div></div>
+</div>
+
+<header class="header">
+  <div class="wrap header__inner">
+    <a class="logo" href="index.html" aria-label="Радио JAZZ 89.1 FM, наверх">JAZZ <span>89.1</span></a>
+    <nav class="nav" id="nav" aria-label="Основное меню">
+      <a href="index.html#news">Новости</a>
+      <a href="index.html#schedule">Программа</a>
+      <a href="musicians.html">Музыканты</a>
+      <a href="index.html#releases">Релизы</a>
+      <a href="index.html#podcasts">Подкасты</a>
+      <a href="index.html#video">Видео</a>
+    </nav>
+    <button class="btn btn--light header__cta" type="button" data-open-message>Сообщение в эфир</button>
+    <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="wrap">
+      <ol class="crumbs">
+        <li><a href="index.html">Демо</a></li>
+        <li>О концепте</li>
+      </ol>
+      <p class="eyebrow">Кейс · инициативный редизайн</p>
+      <h1 class="page-title">Сайт,<br>который звучит</h1>
+      <p class="lead">Концепт нового сайта Радио JAZZ 89.1 FM: эфир — главный герой, а интерфейс говорит на языке джаза — винил, ламповое табло, обложки в духе пластинок 50-х.</p>
+      <div class="case-cta">
+        <a class="btn btn--light" href="index.html">Открыть демо</a>
+        <a class="btn" href="https://radiojazzfm.ru/">Текущий сайт радио</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-sec">
+    <div class="wrap case-grid">
+      <div><span class="case-num">01</span><h2>Задача</h2></div>
+      <div class="case-text">
+        <p>Сделать по собственной инициативе концепт сайта для Радио JAZZ: такой, чтобы атмосфера джаза ощущалась с первого экрана, а слушать эфир хотелось сразу. Контент — настоящий: новости, релизы, подкасты и видео взяты с текущего сайта радио.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-sec">
+    <div class="wrap case-grid">
+      <div><span class="case-num">02</span><h2>Что мешало</h2></div>
+      <div>
+        <ul class="problems">
+          <li><b>Одна платформа на четыре станции</b><span>Сайт общий с НАШЕ, ROCK FM и ULTRA: плеер, формы и футер рассчитаны на всех сразу, а не на джаз.</span></li>
+          <li><b>Чужая повестка</b><span>Лента новостей nsn.fm с политикой и происшествиями посреди джазового портала ломает настроение.</span></li>
+          <li><b>Эфир на втором плане</b><span>Главное у радио — эфир, но плеер прижат к краю экрана и спрятан в общую конструкцию.</span></li>
+          <li><b>Нет фокуса</b><span>Длинная главная из равнозначных блоков; промо 2019 года стоит рядом со свежими новостями.</span></li>
+          <li><b>Сильный контент теряется</b><span>535 биографий и сотни релизов скрыты за тегами-счётчиками.</span></li>
+          <li><b>Визуал не про джаз</b><span>Типовой новостной шаблон с красным акцентом — без типографики, винила и атмосферы, которыми джаз богат.</span></li>
+        </ul>
+        <figure class="shot before-slot slot" style="margin-top:20px">
+          <img data-slot src="assets/case/before.webp" alt="Главная страница текущего сайта Радио JAZZ">
+          <figcaption>Так выглядит текущая главная radiojazzfm.ru</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-sec">
+    <div class="wrap case-grid">
+      <div><span class="case-num">03</span><h2>Поиск стиля</h2></div>
+      <div>
+        <div class="dirs">
+          <div class="dir dir--part"><b>Blue Note</b><span>Обложки 50-х: тяжёлая типографика, плашки цвета, геометрия.</span><em>Ушло в релизы и новости</em></div>
+          <div class="dir dir--part"><b>Клуб после полуночи</b><span>Темнота, неоновая вывеска, LED-табло.</span><em>Взяли надпись и табло</em></div>
+          <div class="dir dir--yes"><b>Винил</b><span>Вертушка, тёплый свет, пластинка как главный объект.</span><em>Основа концепта</em></div>
+          <div class="dir dir--no"><b>Сет-лист</b><span>Главная как программа вечера в клубе.</span><em>Отказались: похоже на меню</em></div>
+        </div>
+        <div class="case-text" style="margin-top:28px">
+          <p>Первый микс «клуб + винил + Blue Note» вышел слишком неоновым: розовое свечение читалось как современный бар, а не джаз. Во втором варианте неон убрали, оставив от клуба только многолинейную надпись и янтарное табло, а пластинку сделали главным героем первого экрана.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-sec">
+    <div class="wrap case-grid">
+      <div><span class="case-num">04</span><h2>Система</h2></div>
+      <div>
+        <div class="palette">
+          <div class="sw" style="background:#15100c"><b>Ночь</b><code>#15100C</code></div>
+          <div class="sw" style="background:#efe4cf;color:#15100c"><b>Крем</b><code>#EFE4CF</code></div>
+          <div class="sw" style="background:#c9a24a;color:#15100c"><b>Латунь</b><code>#C9A24A</code></div>
+          <div class="sw" style="background:#c4402a"><b>Наклейка</b><code>#C4402A</code></div>
+          <div class="sw" style="background:#0e3f9a"><b>Blue</b><code>#0E3F9A</code></div>
+          <div class="sw" style="background:#e6a92b;color:#15100c"><b>Горчица</b><code>#E6A92B</code></div>
+        </div>
+        <div class="types" style="margin-top:36px">
+          <div class="type-row"><small>Логотип</small><span style="font-family:var(--f-neon);font-size:44px;line-height:1">Radio JAZZ</span></div>
+          <div class="type-row"><small>Заголовки</small><span style="font-family:var(--f-display);font-weight:700;font-size:40px;line-height:1;text-transform:uppercase">Oswald — С полки радио</span></div>
+          <div class="type-row"><small>Табло</small><span style="font-family:var(--f-led);font-size:26px;color:var(--led)">DOTGOTHIC16 — СЕЙЧАС В ЭФИРЕ</span></div>
+          <div class="type-row"><small>Текст</small><span style="font-size:18px">Golos Text — спокойный шрифт для чтения, с полноценной кириллицей.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-sec">
+    <div class="wrap case-grid">
+      <div><span class="case-num">05</span><h2>Фишки</h2></div>
+      <ul class="feat-list">
+        <li><b>Игла опускается</b> по нажатию Play, пластинка разгоняется до 33⅓</li>
+        <li><b>Скретч:</b> пластинку можно крутить мышкой или пальцем</li>
+        <li><b>Треск винила</b> генерируется в браузере, без аудиофайлов</li>
+        <li><b>VU-метры</b> со стрелками на пружинной физике</li>
+        <li><b>Табло</b> печатает трек по буквам</li>
+        <li><b>Пластинка выезжает</b> из конверта при наведении на релиз</li>
+        <li><b>Программа эфира</b> с отметкой «сейчас»</li>
+        <li><b>Факт дня</b> бегущей LED-строкой</li>
+        <li><b>Энциклопедия</b> с поиском, алфавитом и фильтром</li>
+        <li><b>Пасхалка:</b> набери на клавиатуре «jazz»</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="case-sec">
+    <div class="wrap case-grid">
+      <div><span class="case-num">06</span><h2>Результат</h2></div>
+      <div>
+        <div class="shots">
+          <figure class="shot slot"><img data-slot src="assets/case/site-desktop.webp" alt="Первый экран нового сайта: пластинка, плеер и табло" loading="lazy"><figcaption>Первый экран: эфир в центре внимания</figcaption></figure>
+          <figure class="shot slot"><img data-slot src="assets/case/site-mobile.webp" alt="Мобильная версия нового сайта" loading="lazy"><figcaption>Мобильная версия</figcaption></figure>
+        </div>
+        <figure class="shot slot" style="margin-top:20px"><img data-slot src="assets/case/site-news.webp" alt="Релизы и новости с обложками в стиле Blue Note" loading="lazy"><figcaption>Релизы и новости: обложки в духе пластинок 50-х</figcaption></figure>
+        <div class="case-cta">
+          <a class="btn btn--light" href="index.html">Открыть демо</a>
+          <a class="btn" href="musicians.html">Энциклопедия</a>
+          <a class="btn" href="article.html">Страница статьи</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" id="contacts">
+  <div class="footer__stage" aria-hidden="true">
+    <img class="cut footer__singer" data-slot src="assets/img/07-singer.webp" alt="" loading="lazy">
+    <img class="cut footer__bass" data-slot src="assets/img/04-bass.webp" alt="" loading="lazy">
+  </div>
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__brand">Radio JAZZ</p>
+        <p class="footer__freq">89.1 FM · Москва</p>
+      </div>
+      <div>
+        <p class="eyebrow">Соцсети</p>
+        <ul>
+          <li><a href="https://vk.com/radiojazz">ВКонтакте</a></li>
+          <li><a href="https://t.me/jazz_life">Telegram</a></li>
+          <li><a href="https://ok.ru/group/58943465586729">Одноклассники</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Приложение</p>
+        <ul>
+          <li><a href="https://apps.apple.com/ru/app/%D1%80%D0%B0%D0%B4%D0%B8%D0%BE-jazz/id974032772">App Store</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=ru.radiojazzfm.player">Google Play</a></li>
+          <li><a href="https://radiojazzfm.ru/towns">Города и частоты</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Проект</p>
+        <ul>
+          <li><a href="musicians.html">Энциклопедия музыкантов</a></li>
+          <li><a href="article.html">Статья: Диззи Гиллеспи</a></li>
+          <li><a href="case.html">О концепте</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__note">
+      <span>Неофициальный концепт редизайна. Бренд и материалы принадлежат Радио JAZZ / Мультимедиа Холдинг.</span>
+      <span>Концепт и дизайн — WwolDEM</span>
+    </div>
+  </div>
+</footer>
+
+<div class="mini" id="mini" aria-label="Мини-плеер">
+  <button class="play play--sm" type="button" data-play aria-pressed="false" aria-label="Включить эфир">
+    <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+    <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg>
+  </button>
+  <span class="mini__disc" aria-hidden="true"></span>
+  <div class="mini__text">
+    <div class="mini__artist" id="miniArtist">Dizzy Gillespie</div>
+    <div class="mini__title" id="miniTitle">A Night in Tunisia</div>
+  </div>
+  <span class="mini__stream" id="miniStream">Jazz Legends</span>
+</div>
+
+<dialog class="msg" id="msgDialog" aria-labelledby="msgTitle">
+  <div class="msg__inner">
+    <button class="msg__close" type="button" data-close aria-label="Закрыть">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+    </button>
+    <p class="eyebrow">Прямой эфир</p>
+    <h2 id="msgTitle">Сообщение в эфир</h2>
+    <form id="msgForm">
+      <div class="field"><label for="mName">Имя</label><input id="mName" name="name" autocomplete="given-name" required></div>
+      <div class="field"><label for="mText">Сообщение</label><textarea id="mText" name="text" rows="4" required></textarea></div>
+      <p class="msg__note">Демо-версия: сообщение никуда не отправляется.</p>
+      <button class="btn btn--light" type="submit">Отправить</button>
+    </form>
+    <div class="msg__done" id="msgDone" hidden>
+      <p class="msg__big">Сообщение у ведущего.</p>
+      <p class="msg__note">Ну, почти: это демо. Слушай эфир — вдруг прочитают.</p>
+      <button class="btn" type="button" data-close>Закрыть</button>
+    </div>
+  </div>
+</dialog>
+
+</body>
+</html>
