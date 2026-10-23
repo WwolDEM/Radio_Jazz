@@ -274,3 +274,8 @@ a.mus:hover { border-color: var(--brass); transform: translateY(-4px); }
 .p-ella .poster__w { font-size: 13cqw; }
 .p-ella .card__obj { right: 4%; max-width: 46%; }
 .p-supreme .card__obj { height: 56%; }
+
+/* Скриншот старого сайта: длинный, прокручивается внутри окна */
+.shot__scroll { max-height: 640px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--line-2) transparent; }
+.shot__scroll img { display: block; width: 100%; height: auto; }
+@media (max-width: 600px) { .shot__scroll { max-height: 480px; } }
