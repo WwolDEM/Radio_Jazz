@@ -255,3 +255,22 @@ a.mus:hover { border-color: var(--brass); transform: translateY(-4px); }
   .type-row { grid-template-columns: minmax(0, 1fr); gap: 6px; }
 }
 .before-slot:not(.has-img) { display: none; }
+
+/* Посадка вырезок на постерах новостей */
+.p-aroma .poster__w { font-size: 14cqw; }
+.p-aroma .card__obj { height: 92%; right: 5%; }
+.p-sixty .poster__w { font-size: 40cqw; bottom: -6%; }
+.p-sixty .card__obj { height: 80%; right: 3%; bottom: 4%; max-width: 46%; }
+.p-monk .poster__w { font-size: 22cqw; }
+.p-monk .card__obj { height: 58%; right: 4%; bottom: 14%; max-width: 50%; }
+.p-fusion .card__obj { height: auto; width: 66%; max-width: 66%; right: 3%; bottom: auto; top: 10%; }
+.p-ray:has(.card__obj) .s1, .p-ray:has(.card__obj) .s2 { display: none; }
+.p-ray:has(.card__obj)::before { content: ''; position: absolute; right: -10%; top: -30%; width: 62%; aspect-ratio: 1; border-radius: 50%; background: var(--mustard); }
+.p-ray .card__obj { height: auto; width: 74%; max-width: 74%; right: 4%; bottom: auto; top: 14%; }
+.p-ella .card__obj { height: 92%; right: 6%; }
+.p-sax .card__obj { height: 92%; right: 6%; }
+.p-supreme .poster__w { font-size: 13cqw; }
+.p-supreme .card__obj { height: 64%; right: 3%; bottom: 4%; max-width: 48%; }
+.p-ella .poster__w { font-size: 13cqw; }
+.p-ella .card__obj { right: 4%; max-width: 46%; }
+.p-supreme .card__obj { height: 56%; }
