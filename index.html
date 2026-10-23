@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Радио JAZZ 89.1 FM — концепт редизайна</title>
+<meta name="description" content="Неофициальный демо-концепт редизайна сайта Радио JAZZ 89.1 FM.">
+<meta name="theme-color" content="#15100c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%2315100c'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%234a3b2c'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23c4402a'/%3E%3Ccircle cx='16' cy='16' r='1.2' fill='%2315100c'/%3E%3C/svg%3E">
+<link rel="preload" href="assets/fonts/monoton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/main.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">К содержанию</a>
+
+<div class="ticker">
+  <span class="ticker__label">Факт дня</span>
+  <div class="ticker__track"><div class="ticker__run" id="tickerRun"></div></div>
+</div>
+
+<header class="header">
+  <div class="wrap header__inner">
+    <a class="logo" href="#top" aria-label="Радио JAZZ 89.1 FM, наверх">JAZZ <span>89.1</span></a>
+    <nav class="nav" id="nav" aria-label="Основное меню">
+      <a href="#news">Новости</a>
+      <a href="#releases">Релизы</a>
+      <a href="#podcasts">Подкасты</a>
+      <a href="#video">Видео</a>
+      <a href="#connect">Музыкантам</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <button class="btn btn--light header__cta" type="button" data-open-message>Сообщение в эфир</button>
+    <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="top" aria-label="Эфир">
+    <div class="wrap">
+      <h1 class="hero__title">Radio JAZZ</h1>
+      <div class="hero__rule"><span></span><p>89.1 FM · Москва · все джазовые направления</p></div>
+    </div>
+
+    <div class="wrap hero__grid">
+      <div class="deck" id="deck">
+        <div class="deck__glow" aria-hidden="true"></div>
+        <div class="platter" id="platter">
+          <div class="record" id="record" role="img" aria-label="Пластинка Радио JAZZ, её можно покрутить">
+            <div class="record__label"><b>JAZZ</b><small>89.1 FM</small></div>
+            <div class="record__hole"></div>
+          </div>
+        </div>
+        <div class="arm" aria-hidden="true">
+          <div class="arm__rod"><div class="arm__head"></div></div>
+          <div class="arm__pivot"></div>
+        </div>
+        <p class="deck__hint">← покрути пластинку →</p>
+      </div>
+
+      <div class="player">
+        <p class="eyebrow">Сейчас в эфире · <span id="streamName">Jazz Legends</span></p>
+        <div class="player__main" id="playerMain">
+          <button class="play" type="button" data-play aria-pressed="false" aria-label="Включить эфир">
+            <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+            <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg>
+          </button>
+          <div class="led" aria-live="polite">
+            <div class="led__artist" id="ledArtist">Dizzy Gillespie</div>
+            <div class="led__title" id="ledTitle">A Night in Tunisia</div>
+          </div>
+        </div>
+
+        <div class="progress">
+          <span id="elapsed">00:00</span>
+          <div class="progress__bar"><i id="progressFill"></i></div>
+          <span class="live"><i></i>Live</span>
+        </div>
+
+        <div class="streams" role="group" aria-label="Потоки">
+          <button class="stream" type="button" data-stream="0" aria-pressed="true">Jazz Legends</button>
+          <button class="stream" type="button" data-stream="1" aria-pressed="false">Smooth Jazz</button>
+          <button class="stream" type="button" data-stream="2" aria-pressed="false">Jazz Vocals</button>
+          <button class="stream" type="button" data-stream="3" aria-pressed="false">Classic Jazz</button>
+        </div>
+
+        <div class="player__row">
+          <button class="toggle" id="crackle" type="button" aria-pressed="true"><span class="toggle__dot"></span>Треск винила</button>
+          <span class="demo-note">Демо: эфир не транслируется</span>
+        </div>
+
+        <div class="recent">
+          <p class="eyebrow eyebrow--muted">Недавно звучало</p>
+          <ul id="recent"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="releases section" id="releases">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow eyebrow--ink">Новые релизы</p>
+          <h2>С полки радио</h2>
+        </div>
+        <a class="link" href="https://radiojazzfm.ru/releases">Все релизы</a>
+      </div>
+
+      <div class="shelf">
+        <a class="release" href="https://radiojazzfm.ru/news/trio-gayvoronskogo-kondakova-i-volkova-prezentovali-albom-ascension" style="--lbl:#e6a92b">
+          <div class="release__sleeve">
+            <div class="release__disc"></div>
+            <div class="cover cv-asc"><i class="c1"></i><span class="cover__t">Ascension</span></div>
+          </div>
+          <h3>«Ascension»</h3>
+          <p>Трио Гайворонского, Кондакова и Волкова</p>
+        </a>
+        <a class="release" href="https://radiojazzfm.ru/news/aleksey-kruglov-i-igor-goldenberg-vypustili-albom-peer-gynt-k-150-letiyu-premery-griga" style="--lbl:#c4402a">
+          <div class="release__sleeve">
+            <div class="release__disc"></div>
+            <div class="cover cv-peer"><i class="c1"></i><span class="cover__t">Peer<br>Gynt</span></div>
+          </div>
+          <h3>«Peer Gynt»</h3>
+          <p>Алексей Круглов и Игорь Гольденберг</p>
+        </a>
+        <a class="release" href="https://radiojazzfm.ru/news/trio-toni-karapetyana-vypustilo-albom-modern-nomad" style="--lbl:#0e3f9a">
+          <div class="release__sleeve">
+            <div class="release__disc"></div>
+            <div class="cover cv-nomad"><i class="c1"></i><span class="cover__t">Modern<br>Nomad</span></div>
+          </div>
+          <h3>«Modern Nomad»</h3>
+          <p>Трио Тони Карапетяна</p>
+        </a>
+        <a class="release" href="https://radiojazzfm.ru/news/queentet-sergeya-mazaeva-predstavil-albom-polovetskie-plyaski" style="--lbl:#efe4cf">
+          <div class="release__sleeve">
+            <div class="release__disc"></div>
+            <div class="cover cv-polo"><i class="c1"></i><span class="cover__t">Половецкие<br>пляски</span></div>
+          </div>
+          <h3>«Половецкие пляски»</h3>
+          <p>QUEENtet Сергея Мазаева</p>
+        </a>
+        <a class="release" href="https://radiojazzfm.ru/news/mariya-ryabochkina-zapisala-ispoved-ustavshego-cheloveka-v-ep-primu" style="--lbl:#2b6f6a">
+          <div class="release__sleeve">
+            <div class="release__disc"></div>
+            <div class="cover cv-primu"><i class="c1"></i><span class="cover__t">Приму</span></div>
+          </div>
+          <h3>EP «Приму»</h3>
+          <p>Мария Рябочкина</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="news">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Журнал</p>
+          <h2>Новости</h2>
+        </div>
+        <a class="link link--brass" href="https://radiojazzfm.ru/news">Все материалы</a>
+      </div>
+
+      <div class="chips" role="group" aria-label="Фильтр по рубрикам">
+        <button class="chip" type="button" data-filter="all" aria-pressed="true">Все <small></small></button>
+        <button class="chip" type="button" data-filter="Новости" aria-pressed="false">Новости <small></small></button>
+        <button class="chip" type="button" data-filter="Биография" aria-pressed="false">Биография <small></small></button>
+        <button class="chip" type="button" data-filter="История" aria-pressed="false">История <small></small></button>
+        <button class="chip" type="button" data-filter="Подборка" aria-pressed="false">Подборка <small></small></button>
+        <button class="chip" type="button" data-filter="Цитаты" aria-pressed="false">Цитаты <small></small></button>
+        <button class="chip" type="button" data-filter="Релизы" aria-pressed="false">Релизы <small></small></button>
+      </div>
+
+      <div class="news-grid" id="newsGrid">
+        <a class="card card--feature slot" data-tag="Биография" href="https://radiojazzfm.ru/news/dizzi-gillespi-2">
+          <span class="card__tag">Биография</span>
+          <h3 class="card__title">Диззи Гиллеспи — джазмен, от музыки которого голова идёт кругом</h3>
+          <span class="card__num">01</span>
+          <img class="cut card__img" data-slot src="assets/img/01-sax.webp" alt="" loading="lazy">
+        </a>
+        <a class="card" data-tag="Новости" href="https://radiojazzfm.ru/news/radio-jazz-prezentovalo-sobstvennyy-aromat">
+          <span class="card__tag">Новости</span>
+          <h3 class="card__title">Радио JAZZ презентовало собственный аромат</h3>
+          <span class="card__num">02</span>
+        </a>
+        <a class="card" data-tag="Новости" href="https://radiojazzfm.ru/news/sergeyu-zhilinu">
+          <span class="card__tag">Новости</span>
+          <h3 class="card__title">Сергею Жилину — 60!</h3>
+          <span class="card__num">03</span>
+        </a>
+        <a class="card" data-tag="Цитаты" href="https://radiojazzfm.ru/news/10-sovetov-teloniusa-monka-muzykantam">
+          <span class="card__tag">Цитаты</span>
+          <h3 class="card__title">10 советов Телониуса Монка музыкантам</h3>
+          <span class="card__num">04</span>
+        </a>
+        <a class="card" data-tag="Подборка" href="https://radiojazzfm.ru/news/luchshie-dzhaz-fyuzhn-albomy">
+          <span class="card__tag">Подборка</span>
+          <h3 class="card__title">Лучшие джаз-фьюжн альбомы</h3>
+          <span class="card__num">05</span>
+        </a>
+        <a class="card" data-tag="Биография" href="https://radiojazzfm.ru/news/rey-charlz-tragediya-zhizni-obernuvshayasya-chudom">
+          <span class="card__tag">Биография</span>
+          <h3 class="card__title">Рэй Чарльз: трагедия жизни, обернувшаяся чудом</h3>
+          <span class="card__num">06</span>
+        </a>
+        <a class="card" data-tag="История" href="https://radiojazzfm.ru/news/ella-fitsdzherald-i-merilin-monro">
+          <span class="card__tag">История</span>
+          <h3 class="card__title">Элла Фицджеральд и Мэрилин Монро</h3>
+          <span class="card__num">07</span>
+        </a>
+        <a class="card" data-tag="Подборка" href="https://radiojazzfm.ru/news/luchshie-dzhazovye-saksofonisty-xx-nachala-xxi-veka">
+          <span class="card__tag">Подборка</span>
+          <h3 class="card__title">Лучшие джазовые саксофонисты XX — начала XXI века</h3>
+          <span class="card__num">08</span>
+        </a>
+        <a class="card" data-tag="Релизы" href="https://radiojazzfm.ru/news/aleksey-kruglov-predstavil-novyy-vzglyad-na-a-love-supreme-koltreyna">
+          <span class="card__tag">Релизы</span>
+          <h3 class="card__title">Алексей Круглов представил новый взгляд на «A Love Supreme» Колтрейна</h3>
+          <span class="card__num">09</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line" id="podcasts">
+    <div class="wrap pod-grid">
+      <div>
+        <div class="sec-head">
+          <div>
+            <p class="eyebrow">Слушать в записи</p>
+            <h2>Подкасты</h2>
+          </div>
+          <a class="link link--brass" href="https://radiojazzfm.ru/podcasts">Все подкасты</a>
+        </div>
+        <ul class="pod-list">
+          <li><a class="pod" href="https://radiojazzfm.ru/podcasts/69"><span class="pod__btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span><span class="pod__title">Вечерний джайв</span><span class="pod__meta">Подкаст</span></a></li>
+          <li><a class="pod" href="https://radiojazzfm.ru/podcasts/101"><span class="pod__btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span><span class="pod__title">Игры в джаз</span><span class="pod__meta">Подкаст</span></a></li>
+          <li><a class="pod" href="https://radiojazzfm.ru/podcasts/105"><span class="pod__btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span><span class="pod__title">Эра святого саксофона</span><span class="pod__meta">Подкаст</span></a></li>
+          <li><a class="pod" href="https://radiojazzfm.ru/podcasts/97"><span class="pod__btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span><span class="pod__title">Эпоха великого экспериментатора</span><span class="pod__meta">Подкаст</span></a></li>
+          <li><a class="pod" href="https://radiojazzfm.ru/podcasts/95"><span class="pod__btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span><span class="pod__title">Доктор на Джазе</span><span class="pod__meta">Подкаст</span></a></li>
+        </ul>
+      </div>
+      <figure class="pod-art slot" aria-hidden="true">
+        <div class="slot__fallback pod-stack">
+          <span class="pod-stack__s pod-stack__s--1"></span>
+          <span class="pod-stack__s pod-stack__s--2"></span>
+          <span class="pod-stack__s pod-stack__s--3"><b>On air</b></span>
+        </div>
+        <img class="cut" data-slot src="assets/img/08-sleeves.webp" alt="" loading="lazy">
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section--line video" id="video">
+    <img class="cut video__deco" data-slot src="assets/img/02-trumpet.webp" alt="" loading="lazy">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Смотреть</p>
+          <h2>Видео</h2>
+        </div>
+        <a class="link link--brass" href="https://radiojazzfm.ru/video">Все видео</a>
+      </div>
+      <div class="video-grid">
+        <a class="vid" href="https://radiojazzfm.ru/video/14965">
+          <div class="vid__thumb vt-1"><span class="vid__tag">Клип</span><span class="vid__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></div>
+          <h3>«Русь. Ожившая картина» — Московский джазовый оркестр</h3>
+        </a>
+        <a class="vid" href="https://radiojazzfm.ru/video/5133">
+          <div class="vid__thumb vt-2"><span class="vid__tag">Релиз</span><span class="vid__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></div>
+          <h3>Новый альбом Билла Фризелла</h3>
+        </a>
+        <a class="vid" href="https://radiojazzfm.ru/video/5025">
+          <div class="vid__thumb vt-3"><span class="vid__tag">Концерт</span><span class="vid__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></div>
+          <h3>Мелодичные истории Пэта Мэтини</h3>
+        </a>
+        <a class="vid" href="https://radiojazzfm.ru/video/4881">
+          <div class="vid__thumb vt-4"><span class="vid__tag">Шоу</span><span class="vid__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></div>
+          <h3>Недетский Джаз. Выпуск 1</h3>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="connect" id="connect">
+    <div class="connect__col slot">
+      <div class="connect__body">
+        <p class="eyebrow">Прямой эфир</p>
+        <h2>Напиши ведущему</h2>
+        <p>Привет, заявка, вопрос гостю студии — сообщение попадёт прямо в эфирную студию.</p>
+        <button class="btn btn--light" type="button" data-open-message>Сообщение в эфир</button>
+      </div>
+      <img class="cut connect__img" data-slot src="assets/img/03-mic.webp" alt="" loading="lazy">
+    </div>
+    <div class="connect__col slot">
+      <div class="connect__body">
+        <p class="eyebrow">Музыкантам</p>
+        <h2>Пришли свой трек</h2>
+        <p>Играешь джаз? Отправь запись редакции — лучшие треки звучат в эфире 89.1 FM.</p>
+        <a class="btn" href="https://radiojazzfm.ru/send-song">Отправить трек</a>
+      </div>
+      <img class="cut connect__img" data-slot src="assets/img/06-sax-silhouette.webp" alt="" loading="lazy">
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer" id="contacts">
+  <div class="footer__stage" aria-hidden="true">
+    <img class="cut footer__singer" data-slot src="assets/img/07-singer.webp" alt="" loading="lazy">
+    <img class="cut footer__bass" data-slot src="assets/img/04-bass.webp" alt="" loading="lazy">
+  </div>
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__brand">Radio JAZZ</p>
+        <p class="footer__freq">89.1 FM · Москва</p>
+      </div>
+      <div>
+        <p class="eyebrow">Соцсети</p>
+        <ul>
+          <li><a href="https://vk.com/radiojazz">ВКонтакте</a></li>
+          <li><a href="https://t.me/jazz_life">Telegram</a></li>
+          <li><a href="https://ok.ru/group/58943465586729">Одноклассники</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Приложение</p>
+        <ul>
+          <li><a href="https://apps.apple.com/ru/app/%D1%80%D0%B0%D0%B4%D0%B8%D0%BE-jazz/id974032772">App Store</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=ru.radiojazzfm.player">Google Play</a></li>
+          <li><a href="https://radiojazzfm.ru/towns">Города и частоты</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__note">
+      <span>Неофициальный концепт редизайна. Бренд и материалы принадлежат Радио JAZZ / Мультимедиа Холдинг.</span>
+      <span>Концепт и дизайн — WwolDEM</span>
+    </div>
+  </div>
+</footer>
+
+<div class="mini" id="mini" aria-label="Мини-плеер">
+  <button class="play play--sm" type="button" data-play aria-pressed="false" aria-label="Включить эфир">
+    <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+    <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg>
+  </button>
+  <span class="mini__disc" aria-hidden="true"></span>
+  <div class="mini__text">
+    <div class="mini__artist" id="miniArtist">Dizzy Gillespie</div>
+    <div class="mini__title" id="miniTitle">A Night in Tunisia</div>
+  </div>
+  <span class="mini__stream" id="miniStream">Jazz Legends</span>
+</div>
+
+<dialog class="msg" id="msgDialog" aria-labelledby="msgTitle">
+  <div class="msg__inner">
+    <button class="msg__close" type="button" data-close aria-label="Закрыть">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+    </button>
+    <p class="eyebrow">Прямой эфир</p>
+    <h2 id="msgTitle">Сообщение в эфир</h2>
+    <form id="msgForm">
+      <div class="field"><label for="mName">Имя</label><input id="mName" name="name" autocomplete="given-name" required></div>
+      <div class="field"><label for="mText">Сообщение</label><textarea id="mText" name="text" rows="4" required></textarea></div>
+      <p class="msg__note">Демо-версия: сообщение никуда не отправляется.</p>
+      <button class="btn btn--light" type="submit">Отправить</button>
+    </form>
+    <div class="msg__done" id="msgDone" hidden>
+      <p class="msg__big">Сообщение у ведущего.</p>
+      <p class="msg__note">Ну, почти: это демо. Слушай эфир — вдруг прочитают.</p>
+      <button class="btn" type="button" data-close>Закрыть</button>
+    </div>
+  </div>
+</dialog>
+
+</body>
+</html>
